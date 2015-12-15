@@ -4,6 +4,8 @@ Helper module to manage RoboFont extension settings.
 
 The `SettingsWindow` will show UI elements to edit values and save them under a given extension id. Currently float and bool values are supported. Float values will be shown as a slider, and bool values as a check box.
 
+The values will be saved to the extension defaults when the window is closed. You can then load the values in your extension’s main script via `mojo.extensions.getExtensionDefault()`.
+
 ### Example
 
 This code:
