@@ -59,6 +59,7 @@ class SettingsWindow(BaseWindowController):
                         (self.column + 10, 10 + 26 * i, -10, 22),
                         value = setting.value,
                         callback = self._edit_value,
+                        continuous = False,
                 )
                 setting.ui_object = slider
                 ui_objects.append(slider)
@@ -72,7 +73,7 @@ class SettingsWindow(BaseWindowController):
                 setattr(self.w, "%s_%i" % (setting.key, j), ui_objects[j])
             i += 1
     
-    def _edit_value(self):
+    def _edit_value(self, sender):
         if self._save_on_edit:
             self._save_settings()
     
@@ -93,3 +94,6 @@ def test():
     my_settings.add("mySlider", 0.0, "My Slider")
     my_settings.add("myCheckbox", True)
     my_settings.show()
+
+if __name__ == "__main__":
+    test()
