@@ -11,11 +11,12 @@ The values will be saved to the extension defaults when the window is closed. Yo
 This code:
 
 ```
-def test():
-    my_settings = SettingsWindow(extension_id="de.kutilek.test", name="My Settings", save_on_edit=False)
-    my_settings.add("mySlider", 0.0, "My Slider")
-    my_settings.add("myCheckbox", True)
-    my_settings.show()
+from jkRFExtensionSettings.SettingsWindow import SettingsWindow
+
+my_settings = SettingsWindow(extension_id="de.kutilek.test", name="My Settings", save_on_edit=False)
+my_settings.add("mySlider", 0.0, "My Slider")
+my_settings.add("myCheckbox", True)
+my_settings.show()
 ```
 
 will open this settings dialog:
