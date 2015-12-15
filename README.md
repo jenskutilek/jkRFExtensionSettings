@@ -2,7 +2,11 @@
 
 Helper module to manage RoboFont extension settings.
 
+
+
 ### Example
+
+This code:
 
 ```
 def test():
@@ -12,4 +16,8 @@ def test():
     my_settings.show()
 ```
 
+will open this settings dialog:
+
 <img src="https://raw.githubusercontent.com/jenskutilek/jkRFExtensionSettings/master/images/sample.png" width="412" height="206" alt="">
+
+The values of the slider and checkbox will be stored under `de.kutilek.test.mySlider` and `de.kutilek.test.myCheckbox` respectively.
