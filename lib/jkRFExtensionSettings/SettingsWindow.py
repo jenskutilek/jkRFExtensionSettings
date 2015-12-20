@@ -4,10 +4,11 @@ import vanilla
 from Setting import Setting
 
 class SettingsWindow(BaseWindowController):
-    def __init__(self, extension_id, name, save_on_edit=False):
+    def __init__(self, extension_id, name, save_on_edit=False, analytics=None):
         self._extension_id = extension_id
         self._name = name
         self._save_on_edit = save_on_edit
+        self.analytics = analytics
         self.settings_list = []
         self.settings = {}
         
@@ -76,15 +77,21 @@ class SettingsWindow(BaseWindowController):
     def _edit_value(self, sender):
         if self._save_on_edit:
             self._save_settings()
+        if self.analytics:
+            self.analytics.log(sender.get())
     
     def windowCloseCallback(self, sender):
         self._save_settings()
+        if self.analytics:
+            self.analytics.save()
         super(SettingsWindow, self).windowCloseCallback(sender)
     
     def show(self):
         self._load_settings()
         self._build_ui()
         self.setUpBaseWindowBehavior()
+        if self.analytics:
+            self.analytics.start_session()
         self.w.open()
 
 
