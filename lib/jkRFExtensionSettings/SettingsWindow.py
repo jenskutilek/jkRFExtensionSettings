@@ -78,7 +78,7 @@ class SettingsWindow(BaseWindowController):
         if self._save_on_edit:
             self._save_settings()
         if self.analytics:
-            self.analytics.log(sender.get())
+            self.analytics.log("%s_%s" % (sender.getTitle(), sender.get()))
     
     def windowCloseCallback(self, sender):
         self._save_settings()
